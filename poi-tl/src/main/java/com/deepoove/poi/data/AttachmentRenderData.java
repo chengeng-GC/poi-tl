@@ -15,6 +15,10 @@
  */
 package com.deepoove.poi.data;
 
+import java.nio.file.Paths;
+import java.util.UUID;
+import java.util.concurrent.ThreadLocalRandom;
+
 /**
  * attachment file
  *
@@ -26,14 +30,12 @@ public abstract class AttachmentRenderData implements RenderData {
 
     private AttachmentType fileType;
     private PictureRenderData icon;
+    private String fileName;
 
     public abstract byte[] readAttachmentData();
 
     public AttachmentType getFileType() {
-        if (null != fileType) {
-            return fileType;
-        }
-        setFileType(detectFileType());
+        if (null == fileType) setFileType(detectFileType());
         return fileType;
     }
 
@@ -42,6 +44,7 @@ public abstract class AttachmentRenderData implements RenderData {
     }
 
     public PictureRenderData getIcon() {
+        if (null == icon) setIcon(Pictures.ofBase64(fileType.icon(), PictureType.PNG).size(64, 64).create());
         return icon;
     }
 
@@ -49,16 +52,39 @@ public abstract class AttachmentRenderData implements RenderData {
         this.icon = icon;
     }
 
+    public String getFileName() {
+        if (null == fileName){
+            if (null != getFileSrc()){
+                //File or Url
+               setFileName(Paths.get(getFileSrc()).getFileName().toString());
+            }else {
+                //Byte
+               String uuidRandom = UUID.randomUUID().toString().replace("-", "") + ThreadLocalRandom.current().nextInt(1024);
+               setFileName(uuidRandom+fileType.ext());
+            }
+        }
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
     protected String getFileSrc() {
         return null;
     }
 
     protected AttachmentType detectFileType() {
-        AttachmentType type = AttachmentType.suggestFileType(getFileSrc());
-        if (null == type) {
-            type = AttachmentType.suggestFileType(readAttachmentData());
+        if (null == getFileSrc()) {
+            //Byte
+            AttachmentType type = AttachmentType.suggestFileType(readAttachmentData());
+            return type;
+        }else {
+            //File or Url
+            AttachmentType type = AttachmentType.suggestFileType(getFileSrc());
+            return type;
         }
-        return type;
     }
+
 
 }

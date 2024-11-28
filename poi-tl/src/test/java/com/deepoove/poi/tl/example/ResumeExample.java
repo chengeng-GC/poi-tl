@@ -23,7 +23,7 @@ public class ResumeExample {
 
     @BeforeEach
     public void init() {
-        datas.setPortrait(Pictures.ofLocal("src/test/resources/sayi.png").size(100, 100).create());
+        datas.setPortrait(Pictures.ofLocal("src/test/resources/sayi中文.png").size(100, 100).create());
         datas.setName("卅一");
         datas.setJob("BUG工程师");
         datas.setPhone("18080809090");

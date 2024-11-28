@@ -183,7 +183,7 @@ public class IterableTemplateTest {
                 put("name", "Sayi");
                 put("addrs", addrs);
                 put("list", new NumberingRenderData(NumberingFormat.DECIMAL, textRenderData, textRenderData));
-                put("image", new FilePictureRenderData(120, 120, "src/test/resources/sayi.png"));
+                put("image", new FilePictureRenderData(120, 120, "src/test/resources/sayi中文.png"));
                 put("table", Tables.of(row0, row1, row2).create());
 
             }
@@ -192,7 +192,7 @@ public class IterableTemplateTest {
             {
                 put("name", "Deepoove");
                 put("list", new NumberingRenderData(NumberingFormat.DECIMAL, textRenderData, textRenderData));
-                put("image", new FilePictureRenderData(120, 120, "src/test/resources/sayi.png"));
+                put("image", new FilePictureRenderData(120, 120, "src/test/resources/sayi中文.png"));
 
             }
         });

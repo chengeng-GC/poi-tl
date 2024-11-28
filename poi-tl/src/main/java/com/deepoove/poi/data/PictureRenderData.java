@@ -36,6 +36,7 @@ public abstract class PictureRenderData implements RenderData {
     public abstract byte[] readPictureData();
 
     public PictureStyle getPictureStyle() {
+        if (null == pictureStyle) setPictureStyle(new PictureStyle());
         return pictureStyle;
     }
 
@@ -52,6 +53,7 @@ public abstract class PictureRenderData implements RenderData {
     }
 
     public PictureType getPictureType() {
+        if (null == pictureType) pictureType = PictureType.suggestFileType(readPictureData());
         return pictureType;
     }
 

@@ -18,7 +18,7 @@ public class PictureTemplateRenderTest {
     @SuppressWarnings("serial")
     @Test
     public void testIterablePictureRender() throws Exception {
-        PictureRenderData image = Pictures.ofLocal("src/test/resources/sayi.png").size(100, 120).create();
+        PictureRenderData image = Pictures.ofLocal("src/test/resources/sayi中文.png").size(100, 120).create();
         PictureRenderData image2 = Pictures.ofLocal("src/test/resources/logo.png").size(100, 120).create();
         Map<String, Object> data = new HashMap<String, Object>();
         data.put("title", "poi-tl");
@@ -45,7 +45,7 @@ public class PictureTemplateRenderTest {
         XWPFTemplate.compile("src/test/resources/template/reference_picture.docx")
                 .render(new HashMap<String, Object>() {
                     {
-                        put("img", Pictures.ofLocal("src/test/resources/sayi.png").size(100, 120).create());
+                        put("img", Pictures.ofLocal("src/test/resources/sayi中文.png").size(100, 120).create());
                     }
                 }).writeToFile("target/out_reference_picture.docx");
     }

@@ -136,7 +136,7 @@ public class ConfigureTest {
             {
                 put("作者姓名", "Sayi");
                 put("作者别名", "卅一");
-                put("头像", Pictures.ofLocal("src/test/resources/sayi.png").size(60, 60).create());
+                put("头像", Pictures.ofLocal("src/test/resources/sayi中文.png").size(60, 60).create());
                 put("详情网址", new HyperlinkTextRenderData("http://www.deepoove.com", "http://www.deepoove.com"));
                 put("详情", new HashMap<String, Object>() {
                     {

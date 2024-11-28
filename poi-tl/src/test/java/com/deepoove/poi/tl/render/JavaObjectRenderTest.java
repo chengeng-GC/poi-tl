@@ -26,7 +26,7 @@ public class JavaObjectRenderTest {
                 "Minimal Microsoft word(docx) templating with {{template}} in Java. It works by expanding tags in a template using values provided in a JavaMap or JavaObject.");
         obj.setAuthor("Sayi");
         obj.setIntroduce(Texts.of("http://www.deepoove.com").link("http://www.deepoove.com").create());
-        obj.setPortrait(new FilePictureRenderData(60, 60, "src/test/resources/sayi.png"));
+        obj.setPortrait(new FilePictureRenderData(60, 60, "src/test/resources/sayi中文.png"));
         obj.setSolutionCompare(Tables
                 .of(new String[][] { new String[] { "00", "01", "02" }, new String[] { "10", "11", "12" } }).create());
         obj.setFeature(Numberings.create("Plug-in grammar, add new grammar by yourself",

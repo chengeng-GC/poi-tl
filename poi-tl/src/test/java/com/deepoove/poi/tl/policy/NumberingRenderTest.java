@@ -59,7 +59,7 @@ public class NumberingRenderTest {
                         .create())
                 .addItem(Paragraphs.of()
                         .addText(new TextRenderData("Deeply in love with the things you love, just deepoove."))
-                        .addPicture(Pictures.ofLocal("src/test/resources/sayi.png").size(120, 120).create())
+                        .addPicture(Pictures.ofLocal("src/test/resources/sayi中文.png").size(120, 120).create())
                         .glyphStyle(fmtStyle)
                         .create())
                 .addItem(Paragraphs.of()
@@ -92,7 +92,7 @@ public class NumberingRenderTest {
 
     private NumberingRenderData getPictureData() {
         TextRenderData hyper = Texts.of("Deepoove website.").link("http://www.deepoove.com").bold().create();
-        PictureRenderData image = Pictures.ofLocal("src/test/resources/sayi.png").size(120, 120).create();
+        PictureRenderData image = Pictures.ofLocal("src/test/resources/sayi中文.png").size(120, 120).create();
         return Numberings.ofDecimalParentheses()
                 .addItem(image)
                 .addItem(hyper)

@@ -106,7 +106,7 @@ public class WritePluginTest {
         // 初始化where的数据
         HashMap<String, Object> args = new HashMap<String, Object>();
         args.put("sea", "Hello, world!");
-        args.put("sea_img", "src/test/resources/sayi.png");
+        args.put("sea_img", "src/test/resources/sayi中文.png");
         args.put("sea_feature", Arrays.asList("面朝大海春暖花开", "今朝有酒今朝醉"));
         args.put("sea_location", Arrays.asList("日落：日落山花红四海", "花海：你想要的都在这里"));
 

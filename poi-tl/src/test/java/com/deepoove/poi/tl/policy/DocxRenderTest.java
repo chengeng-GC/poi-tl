@@ -29,7 +29,7 @@ public class DocxRenderTest {
         data1.setB("唐");
         data1.setC("明");
         data1.setD("清");
-        data1.setLogo(new FilePictureRenderData(120, 120, "src/test/resources/sayi.png"));
+        data1.setLogo(new FilePictureRenderData(120, 120, "src/test/resources/sayi中文.png"));
 
         DataTest data2 = new DataTest();
         data2.setQuestion("康乾盛世是历史上哪个朝代");

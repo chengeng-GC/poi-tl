@@ -37,9 +37,6 @@ public class DefaultPictureTemplateRenderPolicy
         XWPFPicture t = pictureTemplate.getPicture();
         byte[] image = data.readPictureData();
         PictureType pictureType = data.getPictureType();
-        if (null == pictureType) {
-            pictureType = PictureType.suggestFileType(image);
-        }
         XWPFRun run = (XWPFRun) ReflectionUtils.getValue("run", t);
         if (run.getParent().getPart() instanceof XWPFHeaderFooter) {
             XWPFHeaderFooter headerFooter = (XWPFHeaderFooter) run.getParent().getPart();

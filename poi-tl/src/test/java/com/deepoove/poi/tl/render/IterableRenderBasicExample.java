@@ -55,7 +55,7 @@ public class IterableRenderBasicExample {
                 "Java Word模板引擎： Minimal Microsoft word(docx) templating with {{template}} in Java. It works by expanding tags in a template using values provided in a JavaMap or JavaObject.");
         data.put("author", Texts.of("Sayi卅一").color("000000").create());
         data.put("introduce", Texts.of("http://www.deepoove.com").link("http://www.deepoove.com").create());
-        data.put("portrait", Pictures.ofLocal("src/test/resources/sayi.png").size(60, 60).create());
+        data.put("portrait", Pictures.ofLocal("src/test/resources/sayi中文.png").size(60, 60).create());
 
         data.put("solution_compare", table);
         data.put("feature", numbering);

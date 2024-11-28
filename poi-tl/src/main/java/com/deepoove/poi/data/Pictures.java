@@ -104,12 +104,7 @@ public class Pictures {
         }
 
         private PictureStyle getPictureStyle() {
-            PictureStyle style = data.getPictureStyle();
-            if (null == style) {
-                style = new PictureStyle();
-                data.setPictureStyle(style);
-            }
-            return style;
+            return data.getPictureStyle();
         }
 
         public PictureBuilder sizeInCm(double widthCm, double heightCm) {

@@ -285,7 +285,7 @@ public class NiceXWPFDocument extends XWPFDocument {
         return getRelationId(embeddPart);
     }
 
-    public String addEmbeddData(byte[] embeddData, String contentType, String part)
+    public String addEmbeddData(byte[] embeddData, String contentType,String relType, String part)
             throws InvalidFormatException, IOException {
         PackagePartName partName = PackagingURIHelper.createPartName(part);
         PackagePart packagePart = getPackage().createPart(partName, contentType);
@@ -296,7 +296,7 @@ public class NiceXWPFDocument extends XWPFDocument {
             throw new POIXMLException(e);
         }
         PackageRelationship ole = getPackagePart().addRelationship(partName, TargetMode.INTERNAL,
-                POIXMLDocument.PACK_OBJECT_REL_TYPE);
+                relType);
         return ole.getId();
     }
 

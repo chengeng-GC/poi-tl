@@ -41,7 +41,7 @@ public class XWPFTemplateTest {
         // hyperlink
         datas.put("introduce", Texts.of("http://www.deepoove.com").link("http://www.deepoove.com").create());
         // picture
-        datas.put("portrait", Pictures.ofLocal("src/test/resources/sayi.png").size(60, 60).create());
+        datas.put("portrait", Pictures.ofLocal("src/test/resources/sayi中文.png").size(60, 60).create());
         // table
         datas.put("solution_compare", table);
         // numbering

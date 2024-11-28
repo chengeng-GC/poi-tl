@@ -51,7 +51,7 @@ public class PictureRenderTest {
     public void testPictureRender() throws Exception {
         Map<String, Object> datas = new HashMap<String, Object>();
         // local file path
-        datas.put("localPicture", Pictures.ofLocal("src/test/resources/sayi.png").size(120, 120).create());
+        datas.put("localPicture", Pictures.ofLocal("src/test/resources/sayi中文.png").size(120, 120).create());
         // input stream
         datas.put("localBytePicture",
             Pictures.ofStream(new FileInputStream("src/test/resources/logo.png")).size(100, 120).create());

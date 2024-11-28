@@ -38,7 +38,7 @@ public class DocumentRenderPolicyTest {
         // create paragraph
         ParagraphRenderData paragraph = Paragraphs.of()
                 .addText("I consider myself the luckiest😁 man on the face of the")
-                .addPicture(Pictures.ofLocal("src/test/resources/sayi.png").size(40, 40).create())
+                .addPicture(Pictures.ofLocal("src/test/resources/sayi中文.png").size(40, 40).create())
                 .addText(Texts.of(" poi-tl").link("http://deepoove.com/poi-tl").create()).create();
 
         // create numbering

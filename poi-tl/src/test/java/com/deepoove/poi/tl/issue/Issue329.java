@@ -28,7 +28,7 @@ public class Issue329 {
         data1.setC("明");
         data1.setD("清");
         // data1.setLogo(new PictureRenderData(120, 120,
-        // "src/test/resources/sayi.png"));
+        // "src/test/resources/sayi中文.png"));
 
         dataList = new ArrayList<DataTest>();
 

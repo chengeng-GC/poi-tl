@@ -34,7 +34,7 @@ public class TableRenderTest {
                 .addParagraph(Paragraphs.of(Texts.of("World").color("ffffff").bold().create()).left().create())
                 .create();
         cell1 = Cells.create("document");
-        cell2 = Cells.of(Pictures.ofLocal("src/test/resources/sayi.png").size(40, 40).create()).addParagraph("Sayi")
+        cell2 = Cells.of(Pictures.ofLocal("src/test/resources/sayi中文.png").size(40, 40).create()).addParagraph("Sayi")
                 .center().create();
 
         row0 = Rows.of(cell, cell, cell, cell).center().rowHeight(2.54f).bgColor("f58d71").create();

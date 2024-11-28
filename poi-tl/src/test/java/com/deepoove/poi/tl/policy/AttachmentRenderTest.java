@@ -6,17 +6,14 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.deepoove.poi.data.*;
+import org.apache.poi.ooxml.POIXMLDocument;
 import org.apache.poi.xwpf.usermodel.UnderlinePatterns;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.deepoove.poi.XWPFTemplate;
 import com.deepoove.poi.config.Configure;
-import com.deepoove.poi.data.AttachmentType;
-import com.deepoove.poi.data.Attachments;
-import com.deepoove.poi.data.Charts;
-import com.deepoove.poi.data.TextRenderData;
-import com.deepoove.poi.data.Texts;
 import com.deepoove.poi.data.style.Style;
 import com.deepoove.poi.policy.AttachmentRenderPolicy;
 import com.deepoove.poi.xwpf.XWPFHighlightColor;
@@ -71,43 +68,67 @@ public class AttachmentRenderTest {
         };
 
         XWPFTemplate attachTemplate = XWPFTemplate.compile("src/test/resources/template/render_text.docx")
-                .render(attachDatas);
+            .render(attachDatas);
 
         Map<String, Object> datas = new HashMap<String, Object>() {
             {
                 put("attachment",
-                        Attachments.ofLocal("src/test/resources/template/attachment.docx", AttachmentType.DOCX)
-                                .create());
-                put("xlsx", Attachments.ofLocal("src/test/resources/template/attachment.xlsx", AttachmentType.XLSX)
+                    Attachments.ofLocal("src/test/resources/template/attachment.docx", AttachmentType.DOCX)
                         .create());
+
+
                 put("chart", Charts
-                        .ofMultiSeries("CustomTitle",
-                                new String[] { "中文", "English", "日本語", "português", "中文", "English", "日本語",
-                                        "português" })
-                        .addSeries("countries", new Double[] { 15.0, 6.0, 18.0, 231.0, 150.0, 6.0, 118.0, 31.0 })
-                        .addSeries("speakers", new Double[] { 223.0, 119.0, 154.0, 142.0, 223.0, 119.0, 54.0, 42.0 })
-                        .addSeries("youngs", new Double[] { 323.0, 89.0, 54.0, 42.0, 223.0, 119.0, 54.0, 442.0 })
-                        .create());
+                    .ofMultiSeries("CustomTitle",
+                        new String[]{"中文", "English", "日本語", "português", "中文", "English", "日本語",
+                            "português"})
+                    .addSeries("countries", new Double[]{15.0, 6.0, 18.0, 231.0, 150.0, 6.0, 118.0, 31.0})
+                    .addSeries("speakers", new Double[]{223.0, 119.0, 154.0, 142.0, 223.0, 119.0, 54.0, 42.0})
+                    .addSeries("youngs", new Double[]{323.0, 89.0, 54.0, 42.0, 223.0, 119.0, 54.0, 442.0})
+                    .create());
             }
         };
 
         Configure configure = Configure.builder()
-                .bind("attachment", new AttachmentRenderPolicy())
-                .bind("xlsx", new AttachmentRenderPolicy())
-                .build();
+            .bind("attachment", new AttachmentRenderPolicy())
+            .bind("xlsx", new AttachmentRenderPolicy())
+            .bind("olePDF", new AttachmentRenderPolicy())
+            .bind("oleTXT", new AttachmentRenderPolicy())
+            .bind("olePNG", new AttachmentRenderPolicy())
+            .bind("oleJPG", new AttachmentRenderPolicy())
+            .bind("customIcon", new AttachmentRenderPolicy())
+            .build();
+
 
         XWPFTemplate.compile("src/test/resources/template/render_attachment.docx", configure)
-                .render(new HashMap<String, Object>() {
-                    {
-                        put("attachment", Attachments.ofWordTemplate(attachTemplate).create());
-                        put("xlsx",
-                                Attachments.ofLocal("src/test/resources/template/attachment.xlsx", AttachmentType.XLSX)
-                                        .create());
-                        put("list", Arrays.asList(datas, datas));
+            .render(new HashMap<String, Object>() {
+                {
+//                    put("attachment", Attachments.ofWordTemplate(attachTemplate).create());
+//                    put("xlsx",
+//                        Attachments.ofLocal("src/test/resources/template/附件.xlsx", AttachmentType.XLSX)
+//                            .create());
+//                    put("olePDF", Attachments.ofLocal("src/test/resources/test中文.pdf")
+//                        .create());
+//                    put("oleTXT", Attachments.ofLocal("src/test/resources/1中文.txt")
+//                        .create());
+//                    put("olePNG", Attachments.ofLocal("src/test/resources/sayi中文.png")
+//                        .create());
 
-                    }
-                })
-                .writeToFile("target/out_render_attachment.docx");
+                    put("oleJPG", Attachments.ofLocal("src/test/resources/第二个中文.jpg")
+                        .create());
+                    AttachmentRenderData attachmentRenderData = Attachments.ofLocal("src/test/resources/第一个中文.png")
+                        .create();
+//                    attachmentRenderData.setIcon(Pictures.ofLocal("src/test/resources/第一个中文.png").fitSize().create());
+
+                    put("customIcon", attachmentRenderData);
+
+
+
+
+//                    put("list", Arrays.asList(datas, datas));
+
+                }
+            })
+            .writeToFile("target/out_render_attachment.docx");
 
     }
 

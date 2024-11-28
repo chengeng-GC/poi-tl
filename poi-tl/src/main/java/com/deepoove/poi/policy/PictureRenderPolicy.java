@@ -83,14 +83,11 @@ public class PictureRenderPolicy extends AbstractRenderPolicy<PictureRenderData>
             }
             PictureType pictureType = picture.getPictureType();
             if (null == pictureType) {
-                pictureType = PictureType.suggestFileType(imageBytes);
-            }
-            if (null == pictureType) {
                 throw new RenderException("PictureRenderData must set picture type!");
             }
 
             PictureStyle style = picture.getPictureStyle();
-            if (null == style) style = new PictureStyle();
+
             int width = style.getWidth();
             int height = style.getHeight();
             int svgScale = style.getSvgScale();
@@ -114,6 +111,7 @@ public class PictureRenderPolicy extends AbstractRenderPolicy<PictureRenderData>
                     }
                 }
             }
+
             try (InputStream stream = new ByteArrayInputStream(imageBytes)) {
                 PictureAlign align = style.getAlign();
                 if (null != align && run.getParent() instanceof XWPFParagraph) {

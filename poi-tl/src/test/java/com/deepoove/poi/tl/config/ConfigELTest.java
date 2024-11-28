@@ -37,7 +37,7 @@ public class ConfigELTest {
         Author author = new Author();
         author.setName("Sayi");
         author.setAlias(new TextRenderData("FF0000", "卅一"));
-        author.setAvatar(Pictures.ofLocal("src/test/resources/sayi.png").size(60, 60).create());
+        author.setAvatar(Pictures.ofLocal("src/test/resources/sayi中文.png").size(60, 60).create());
         model.setAuthor(author);
 
         Detail detail = new Detail();

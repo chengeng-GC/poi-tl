@@ -31,7 +31,7 @@ public class CommentRenderPolicyTest {
     public void testComment() throws IOException {
         ParagraphRenderData paragraph = Paragraphs.of()
                 .addText("I consider myself the luckiest😁 man on the face of the")
-                .addPicture(Pictures.ofLocal("src/test/resources/sayi.png").size(40, 40).create())
+                .addPicture(Pictures.ofLocal("src/test/resources/sayi中文.png").size(40, 40).create())
                 .addText(Texts.of(" poi-tl").link("http://deepoove.com/poi-tl").create())
                 .create();
         TableRenderData table = Tables.of(new String[][] { new String[] { "00", "01", "02", "03", "04" },
@@ -46,7 +46,7 @@ public class CommentRenderPolicyTest {
         CommentRenderData comment = Comments.of()
                 .addText("咏")
                 .addSubComment(subcomment)
-                .addPicture(Pictures.ofLocal("src/test/resources/sayi.png").size(20, 20).create())
+                .addPicture(Pictures.ofLocal("src/test/resources/sayi中文.png").size(20, 20).create())
                 .signature("Sayi", "s", Calendar.getInstance())
                 .comment(Documents.of()
                         .addParagraph(Paragraphs.of("作者骆宾王").create())
@@ -58,7 +58,7 @@ public class CommentRenderPolicyTest {
         Map<String, Object> data = new HashMap<>();
         data.put("comment", comment);
         data.put("title", "Sayi");
-        data.put("picture", Pictures.ofLocal("src/test/resources/sayi.png").size(60, 60).create());
+        data.put("picture", Pictures.ofLocal("src/test/resources/sayi中文.png").size(60, 60).create());
         data.put("table", table);
         data.put("list", Arrays.asList("one", "two"));
 

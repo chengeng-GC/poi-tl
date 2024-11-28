@@ -31,7 +31,7 @@ public class ParagraphRenderPolicyTest {
         ParagraphRenderData para = Paragraphs.of().addText("I consider myself the luckiest😁 man on the face of the")
                 .addText(Texts.of(" earth").color("0000FF").bold().create())
                 .addText(Texts.of("10 ").color("FF0000").sup().create())
-                .addPicture(Pictures.ofLocal("src/test/resources/sayi.png").size(40, 40).create())
+                .addPicture(Pictures.ofLocal("src/test/resources/sayi中文.png").size(40, 40).create())
                 .addText(Texts.of(" poi-tl").link("http://deepoove.com/poi-tl").create()).addText(". \n end!")
                 .paraStyle(paragraphStyle).create();
 
